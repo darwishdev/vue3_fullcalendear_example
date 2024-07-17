@@ -71,11 +71,7 @@ function handleEvents(events: EventApi[]) {
             <FullCalendar class='demo-app-calendar' :options='calendarOptions'>
                 <template v-slot:eventContent='arg'>
                     <span>{{ arg.event.title }}</span>
-                    <div>
-                        <span>{{ arg.event.extendedProps.price_1 }} EGP</span>,
-                        <span>{{ arg.event.extendedProps.price_2 }} EGP</span>,
-                        <span>{{ arg.event.extendedProps.price_3 }} EGP</span>
-                    </div>
+                    <span v-for="price in arg.event.extendedProps.prices"> {{ price }} EGP</span>
                 </template>
             </FullCalendar>
         </div>
